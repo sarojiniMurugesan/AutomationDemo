@@ -42,11 +42,31 @@ public class GrootanPage extends BasePage {
         }
     }
 
-    public void ss() throws IOException {
-        WebElement drpdwn = driver.findElement(By.xpath("//li[contains(@class,'primary nav-item')]/a[text()='Home']"));
-        File f = drpdwn.getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(f, new File("D://screenshots.png"));
+    public void comparingCTOAndHRImages() throws IOException {
+        click("xpath", "//li[contains(@class,'primary nav-item')]/a[text()='Team']");
+        delay(3);
+        waitForElementToAppear("xpath","//h5[text()='CTO & Co-Founder']/..//img");
+        waitForElementToAppear("xpath","//h5[text()='HR Manager']/..//img");
+        screenshotOfElement("xpath", "//h5[text()='CTO & Co-Founder']/..//img", System.getProperty("user.dir")+"\\Reports\\"+"CTO.png");
+        screenshotOfElement("xpath", "//h5[text()='HR Manager']/..//img", System.getProperty("user.dir")+"\\Reports\\"+"HR_Manager.png");
+        Pattern cto_img = new Pattern(System.getProperty("user.dir")+"\\Reports\\"+"CTO.png");
+        Finder hr_img = new Finder(System.getProperty("user.dir")+"\\Reports\\"+"HR_Manager.png");
+        hr_img.find(cto_img);
+        int counter = 0;
+        Match objMatch;
+        while (hr_img.hasNext()) {
+            objMatch = hr_img.next();
+            counter++;
+        }
+        if (counter != 0) {
+            updateReport("Comparing CTO and HR Manager images", "Pass", "");
+            step_count++;
+        } else {
+            updateReport("Comparing CTO and HR Manager images", "Fail", "");
+            step_count++;
+        }
     }
+
 
     public void snapOfPages(String folder) {
         try {
@@ -88,7 +108,7 @@ public class GrootanPage extends BasePage {
 
     }
 
-    public void compateImages(String folder1, String folder2) throws IOException {
+    public void compareImages(String folder1, String folder2) throws IOException {
         updateReport("Comparing screenshots between "+folder1+" and "+folder2, "", "");
 
         File[] file = new File(System.getProperty("user.dir")+"\\"+folder1+"\\").listFiles();
@@ -101,7 +121,6 @@ public class GrootanPage extends BasePage {
                 j++;
             }
         }
-        System.out.println(filename.length);
         for(int k=0;k<filename.length;k++) {
             Pattern drag = new Pattern(System.getProperty("user.dir")+"\\"+folder2+"\\" + filename[k]);
             Finder ob = new Finder(System.getProperty("user.dir")+"\\"+folder1+"\\" + filename[k]);

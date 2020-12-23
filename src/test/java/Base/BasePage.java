@@ -137,6 +137,19 @@ public class BasePage extends ExcelProcess{
         }catch (Exception e){}
     }
 
+    protected void screenshotOfElement(String locator, String element, String path) throws IOException {
+        try {
+            WebElement target_element = driver.findElement(locators(locator, element));
+            File f = target_element.getScreenshotAs(OutputType.FILE);
+            FileUtils.copyFile(f, new File(path));
+            updateReport("Took Screenshot for the element " + locator + ": " + element, "Pass", path);
+            step_count++;
+        }catch (Exception e){
+            updateReport("Took Screenshot for the element " + locator + ": " + element, "Fail", "");
+            step_count++;
+        }
+    }
+
     protected void screenshot(String filePath){
         File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         try {

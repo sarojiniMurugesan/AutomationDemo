@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="2" total="3" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="65946" started-at="2020-12-28T03:13:10Z" finished-at="2020-12-28T03:14:16Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="65946" started-at="2020-12-28T03:13:10Z" finished-at="2020-12-28T03:14:16Z">
+      <class name="Test.GrootanTest">
+        <test-method status="PASS" signature="GrootanSiteTest()[pri:0, instance:Test.GrootanTest@6d8a00e3]" name="GrootanSiteTest" duration-ms="65920" started-at="2020-12-28T03:13:10Z" finished-at="2020-12-28T03:14:16Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- GrootanSiteTest -->
+      </class> <!-- Test.GrootanTest -->
+      <class name="Base.BaseTest">
+        <test-method status="PASS" signature="beforeSuite()[pri:0, instance:Base.BaseTest@5ae9a829]" name="beforeSuite" is-config="true" duration-ms="9722" started-at="2020-12-28T03:13:01Z" finished-at="2020-12-28T03:13:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method status="PASS" signature="afterSuite()[pri:0, instance:Base.BaseTest@5ae9a829]" name="afterSuite" is-config="true" duration-ms="1118" started-at="2020-12-28T03:14:16Z" finished-at="2020-12-28T03:14:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- Base.BaseTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

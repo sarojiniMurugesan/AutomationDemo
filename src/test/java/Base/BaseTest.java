@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class BaseTest{
 
-    private WebDriver driver;
+    private static WebDriver driver;
     public static int step_count=1;
     ExcelProcess excel = new ExcelProcess();
 

@@ -1,2 +1,2 @@
 # AutomationDemo
-demo framework
+To execute the Test using commandline -> mvn package
